@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>泉州市建设工程在线监测平台</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/easyui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.treemenu.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">	
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+<script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script
+src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js">
+</script>
+<script
+src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
+</script>
+<![endif]-->
+</head>	
+<body>
+<div id="container" style="min-width:350px;min-height:250px;max-height:450px;"></div>
+
+<script>
+    var chart = Highcharts.chart('container', {
+        title: {
+            text: 'PM2.5报警统计'
+        },
+
+        xAxis: {
+            categories: ['美仙山16120747', '美仙山16120759', '美仙山17020823']
+        },
+        series: [{
+            type: 'column',
+            colorByPoint: true,
+            data: [1, 7,5 ],
+            showInLegend: false
+        }]
+    });
+
+</script>
+<!-- javascript //-->
+<script src="js/jquery-3.2.0.js"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.treemenu.js" type="text/javascript"></script>
+<script src="js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.jeasyui.net/Public/js/easyui/jquery.easyui.min.js"></script>
+
+</body>
+</html>	
+	
+	
+	
+	

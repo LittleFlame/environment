@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> 泉州市建设工程在线监测平台</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/easyui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.treemenu.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">	
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/icon.css">	
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=550PTPx4LFpKiEKeRF4KQTuuU7KTvKpE"></script>	
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script
+src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js">
+</script>
+<script
+src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
+</script>
+<![endif]-->
+</head>	
+<body>
+<div class="header">
+	<div class="header-nav">
+		<div class="row">
+			<div class="col-lg-12">
+			  <h1>泉州市建设工程在线监测平台<h1>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="easyui-layout" style="width:95%;height:85%;overflow:auto">
+		
+		<div data-options="region:'west',split:true" title="菜单" style="width:320px">
+			<ul class="mytree">
+				<li> <a href="#">业务管理</a> 
+					<ul>
+				 	<li>
+				 		<a tabindex="-1" href="#">工程概述</a>
+					<ul>
+						 	<li><a tabindex="-1" href="#" onclick="addTab('工程基本信息','./www/projectBaseInfo.html')">工程基本信息</a></li>	
+						 	<li><a tabindex="-1" href="#" onclick="addTab('监测点位信息','./www/detectLocationInfo.html')">监测点位信息</a></li>
+						 	<li><a tabindex="-1" href="#" onclick="addTab('监测信息查询','./www/projectBaseInfo.html')">监测信息查询</a></li>
+						 	<li><a tabindex="-1" href="#" onclick="addTab('监测报警统计','./www/projectBaseInfo.html')">监测报警统计</a></li>
+					</ul>
+					</li>
+				 	<li>
+				 		<a tabindex="-1" href="#">单位管理</a>
+					 	<ul>
+						 	<li><a href="#" onclick="addTab('建设单位','./www/danwei_jianshe.html')">建设单位</a></li>	
+						 	<li><a href="#" onclick="addTab('施工单位','./www/danwei_shigong.html')">施工单位</a></li>
+						 	<li><a href="#" onclick="addTab('监理单位','./www/danwei_jianli.html')">监理单位</a></li>
+						 	<li><a href="#" onclick="addTab('监督单位','./www/danwei_jiandu.html')">监督单位</a></li>
+					 	</ul>				 	
+				 	</li>
+				 	<li>
+				 		<a tabindex="-1" href="#">人员管理</a>
+					 	<ul>
+						 	<li><a href="#" onclick="addTab('施工扬尘人员信息','./www/renyuan.html')">施工扬尘人员信息</a></li>	
+						 	<li><a href="#" onclick="addTab('建设单位人员信息','./www/renyuan.html')">建设单位人员信息</a></li>
+						 	<li><a href="#" onclick="addTab('监理单位人员信息','./www/renyuan.html')">监理单位人员信息</a></li>
+						 	<li><a href="#" onclick="addTab('监督单位人员信息','./www/renyuan.html')">监督单位人员信息</a></li>
+					 	</ul>
+				 	</li>					 	
+				 	<li><a tabindex="-1" href="#"> 扬尘治理设备管理</a>
+					 	<ul class="">
+						 	<li><a href="#" onclick="addTab('扬尘及噪音检测仪','./www/yangchen.html')">扬尘及噪音检测仪</a></li>	
+					 	</ul>				 						 		
+				 	</li>
+				 	<li><a tabindex="-1" href="#"> 运输车辆管理</a>
+				 		<ul>
+						 	<li><a href="#" onclick="addTab('车辆名单','./www/car.html')">车辆名单</a></li>	
+						 	<li><a href="#" onclick="addTab('车辆清理名单','./www/car_clean.html')">车辆清理名单</a></li>
+						 	<li><a href="#" onclick="addTab('车辆未清理名单','./www/car_noclean.html')">车辆未清理名单</a></li>
+					 	</ul>
+				 	</li>
+				 	<li><a tabindex="-1" href="#"> PM2.5监测</a>
+				 		<ul>
+						 	<li><a href="#" onclick="addTab('pm2.5实时数据','./www/pm25realtime.html')">PM2.5实时数据</a></li>	
+						 	<li><a href="#" onclick="addTab('pm2.5历史查询','./www/pm25his.html')">PM2.5历史查询</a></li>
+						 	<li><a href="#" onclick="addTab('pm2.5报警统计','./www/pm25statistics.html')">PM2.5报警统计</a></li>
+					 	</ul>
+				 	</li>				 	
+				 	<li><a tabindex="-1" href="#"> PM10监测</a>
+				 		<ul>
+						 	<li><a href="#" onclick="addTab('pm10实时数据','./www/pm10realtime.html')">PM10实时数据</a></li>	
+						 	<li><a href="#" onclick="addTab('pm10历史查询','./www/pm10his.html')">PM10历史查询</a></li>
+						 	<li><a href="#" onclick="addTab('pm10报警统计','./www/pm10statistics.html')">PM10报警统计</a></li>
+					 	</ul>				 		
+				 	</li>
+				 	<li><a tabindex="-1" href="#"> 噪声监测</a>
+					 	<ul>
+						 	<li><a href="#" onclick="addTab('噪声实时数据','./www/noiserealtime.html')">噪声实时数据</a></li>	
+						 	<li><a href="#" onclick="addTab('噪声历史查询','./www/noisehis.html')">噪声历史查询</a></li>
+						 	<li><a href="#" onclick="addTab('噪声报警统计','./www/noisehis.html')">噪声报警统计</a></li>
+					 	</ul>				 		
+				 	</li>
+				 	<li><a tabindex="-1" href="#">气象参数监测</a>
+					 	<ul>
+						 	<li><a href="#" onclick="addTab('气象实时数据','./www/weatherrealtime.html')">气象实时数据</a></li>	
+						 	<li><a href="#" onclick="addTab('气象历史查询','./www/weatherhis.html')">气象历史查询</a></li>
+						 	<li><a href="#" onclick="addTab('气象报警统计','./www/projectBaseInfo.html')">气象报警统计</a></li>
+					 	</ul>					 		
+				 	</li>
+				 	
+				 	</ul>
+				</li>
+				<li> <a href="#">系统管理 </a> </li>
+			</ul>
+		</div>
+		<div data-options="region:'center'" style="width:100%;overflow:auto">
+			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true" style="width:100%;overflow:auto">
+				<div title="home">
+					<div id="allmap"></div>	
+					<div id="tool_info">
+						<div id="info_up"></div>
+						<div id="info_down"></div>
+					</div>
+					<div id="tool" style="width:100%; height:10%;background:white">
+
+						<div class="btn btn-default" id="pm25_btn">
+							PM2.5
+						</div>
+						<div class="btn btn-default" id="pm10_btn">
+							PM10
+						</div>
+						<div class="btn btn-default" id=" temperature _btn">
+							温度
+						</div>
+						<div class="btn btn-default" id="humidity_btn">
+						           湿度
+						</div>
+						<div class="btn btn-default" id="rainfall_btn">
+							降雨量
+						</div>
+						<div class="btn btn-default" id="noise_btn">
+							噪声
+						</div>
+						<div class="btn btn-default" id="windSpeed_btn">
+							风速
+						</div>
+						<div class="btn btn-default" id="windDirection_btn">
+							风向
+						</div>					
+						<div class="btn btn-default" id="close_btn">
+							close
+						</div>						
+						
+								
+						
+					</div>	
+				</div>			
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");          
+	map.centerAndZoom(new BMap.Point(118.58,24.93),16);//118.58,24.93
+	var local = new BMap.LocalSearch(map, {
+		renderOptions:{map: map}
+	});
+	map.enableScrollWheelZoom();
+	/*********创建点***********/
+	var point1=new BMap.Point(118.65381,24.920074);  //第一个点
+	//map.centerAndZoom(point1,15);
+	var marker =new BMap.Marker(point1); //创建标注
+	var opt1={                          //创建信息框
+	  width:400,
+	  height:400,
+	  title:"亿隆·美仙山"
+	}
+	var content=
+	/*******************小窗口的信息******************/
+       		
+ '<div class="map">'+
+	'<header>扬尘及噪音监测仪</header>'+
+	'<div class="up center-block">'+
+		'<p>所属工程：亿隆-美仙山</p>'+
+		'<p>仪器编码：16120759</p>'+
+		'<p>数据更新时间：2017年7月13日</p>'+
+	'</div>'+
+	'<div class="box center-block">'+
+			'<header>环境质量分布</header>'+
+	'<div class="out">' +
+	 	'<div class="container-fluid">'+
+			'<div class="row">'+
+				'<div class="col-xs-6">'+
+				'<i class="fa fa-cloud fa-2x"></i>'	+
+				'</div>'	+
+				'<div class="col-xs-6">'+
+					'<span>气象	</span>	'	+		
+				'</div>'	+
+			'</div>'+
+		'</div>'+
+	'</div>' +
+	'<div class="out">' +
+	 	'<div class="container-fluid">'+
+		'<div class="row">'	+
+			'<div class="col-xs-6">'+	
+					'<i class="fa fa-tachometer fa-2x"></i>'+
+				'</div>'+	
+				'<div class="col-xs-6">'+
+					'<span>温度</span>'+
+				'</div>'+	
+			'</div>'+
+		'</div>'+
+	'</div>' +
+	'<div class="out">' +
+	 	'<div class="container-fluid">'+
+			'<div class="row">'+
+				'<div class="col-xs-6">'+
+					'<i class="fa fa-leaf fa-2x"></i>'+
+				'</div>'+	
+				'<div class="col-xs-6">'+
+					'<span>湿度</span>'+
+				'</div>'	+
+			'</div>'+
+		'</div>'+
+	'</div>' +
+	'<div class="out">' +
+	 	'<div class="container-fluid">'+
+			'<div class="row">'+
+				'<div class="col-xs-6">'+
+					'<i class="fa fa-forumbee  fa-2x"></i>'+
+				'</div>'	+
+				'<div class="col-xs-6">'+
+					'<span>风速</span>'+
+				'</div>'+	
+			'</div>'+
+		'</div>'+
+	'</div>' +
+	'<div class="out">' +
+	 	'<div class="container-fluid">'+
+			'<div class="row">'+
+				'<div class="col-xs-6">'+
+					'<i class="fa fa-arrows fa-2x"></i>'+
+				'</div>'	+
+				'<div class="col-xs-6">'+
+					'<span>风向</span>'+
+				'</div>'+	
+			'</div>'+
+		'</div>'+
+	'</div>' +
+	'<div class="out">' +
+		 	'<div class="container-fluid">'+
+				'<div class="row">'+
+					'<div class="col-xs-6">'+
+					'<i class="fa fa-bullhorn fa-2x"></i>'+	
+					'</div>'	+
+					'<div class="col-xs-6">'+
+					'<span>噪声</span>'	+
+					'</div>'	+
+				'</div>'+
+			'</div>'+
+		'</div>' +
+	 '<div class="out">'+
+	 	'<div class="container-fluid">'+
+			'<div class="row">'+
+				'<div class="col-xs-6">'+
+					'<i class="fa fa-tint fa-2x"></i>'+
+				'</div>'	+
+				'<div class="col-xs-6">'+
+					'<span>pm2.5</span>'+
+					'</br>'+
+					'<span>111</span>'+
+					
+				'</div>'+	
+			'</div>'+
+		'</div>'+
+	'</div>' +
+	 '<div class="out">'+
+	 	'<div class="container-fluid">'+
+			'<div class="row">'+
+				'<div class="col-xs-6">'+
+					'<i class="fa fa-leaf fa-2x"></i>'+
+				'</div>'	+
+				'<div class="col-xs-6">'+
+					'<span>pm10</span>'+
+					'</br>'+
+					'<span>111</span>'+
+					
+				'</div>'+	
+			'</div>'+
+		'</div>'+
+	'</div>' +	
+ '</div>' +
+'</div> '                
+                        
+                  
+           ;        
+                  
+                  
+                  
+   /***************/               
+                  
+                 
+
+	
+	
+	function addPoint(){
+	
+	map.addOverlay(marker); //将标注添加到地图
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+	
+	
+	}
+	map.addControl(new BMap.NavigationControl());    
+    map.addControl(new BMap.ScaleControl());    
+    map.addControl(new BMap.OverviewMapControl()); 
+	
+	
+	function ZoomControl1(){
+	  this.defaultAnchor = BMAP_ANCHOR_BOTTOM_LEFT;    
+      this.defaultOffset = new BMap.Size(100,70);
+	}
+	function ZoomControl2(){
+	  this.defaultAnchor = BMAP_ANCHOR_BOTTOM_LEFT;    
+      this.defaultOffset = new BMap.Size(180,70);
+	}
+	ZoomControl1.prototype = new BMap.Control();
+	ZoomControl2.prototype = new BMap.Control();	
+	/**********************在地图上添加自定义控件********************************/
+	
+	/**第一个**/
+	/*
+	ZoomControl1.prototype.initialize=function(map){
+	var div1=document.createElement("div");
+	div1.appendChild(document.createTextNode("pm2.5"));
+	div1.style.cursor="pointer";
+	div1.style.border="1px solid gray";
+	div1.style.borderRadius="6px";
+	div1.style.backgroundColor="#dddddd";
+	map.getContainer().appendChild(div1);
+	div1.onclick=function (){
+	alert("pm2.5");
+//	$("#allmap").css("width","70%");
+	content='<div style="margin:0;line-height:20px;padding:2px;">' +
+                   '<p id="change">'+' pm2.5'+'</p>'+
+                  '</div>';
+	 
+	 
+	 }
+	return div1;
+	}
+	/**第二个**/
+	/*ZoomControl2.prototype.initialize=function(map){
+	var div2=document.createElement("div");
+	div2.appendChild(document.createTextNode("pm10"));
+	div2.style.cursor="pointer";
+	div2.style.border="1px solid gray";
+	div2.style.borderRadius="6px";
+	div2.style.backgroundColor="#dddddd";
+	map.getContainer().appendChild(div2);
+	div2.onclick=function (){
+	alert("pm10");
+	content='<div style="margin:0;line-height:20px;padding:2px;">' +
+                   '<p id="change">'+' pm10'+'</p>'+
+                  '</div>';
+	 
+	 
+	 }
+	return div2;
+	}
+	
+	
+	var myZoomctrl1=new ZoomControl1();
+	map.addControl(myZoomctrl1);
+	var myZoomctrl2=new ZoomControl2();
+	map.addControl(myZoomctrl2);
+	
+	/*****************描绘区域轮廓**********************/
+	function getBoundary(){
+	  var bdary=new BMap.Boundary();
+	  bdary.get("泉州市",function(rs){  //获取行政区域
+	  map.clearOverlays();  //清除地图覆盖物
+	  var count=rs.boundaries.length;
+	  if(count===0){
+		  alert("未能获取当前输入行政区域");
+		  return;
+	  }
+	  var pointArray=[];
+	   for(var i=0;i<count;i++){
+		   var ply= new BMap.Polygon(rs.boundaries[i],{strokeWeight:5,strokeColor:"#ff0000",fillColor:""});//建立多边形覆盖物
+		   map.addOverlay(ply);//添加覆盖物
+		   pointArray=pointArray.concat(ply.getPath());
+	   }
+	  map.setViewport(pointArray);//调整视野
+	  addPoint();   //画标记点
+	  content='<div style="margin:0;line-height:20px;padding:2px;">' +
+                   '<p id="change">'+' pm10'+'</p>'+
+                  '</div>';
+	  });
+	
+	
+	
+	
+	
+	
+	}
+	setTimeout(function(){getBoundary();},100);
+	var infoWindow=new BMap.InfoWindow(content,opt1)
+	/********************监听***************************/	
+		marker.addEventListener("click", function(){          
+		map.openInfoWindow(infoWindow,point1); //开启信息窗口
+	});
+	
+</script>
+
+	<script>
+		
+	window.onload = function(){
+		
+	$(".mytree").treemenu({delay:30}).openActive();
+
+	map_tool();
+
+	}
+
+
+	/*****************************************************添加页面********************/
+		function addTab(title, url){
+			if ($('.easyui-tabs').tabs('exists', title)){
+				$('.easyui-tabs').tabs('select', title);
+			} else {
+				var content = '<iframe scrolling="no" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+				$('.easyui-tabs').tabs('add',{
+					title:title,
+					content:content,
+					closable:true
+				});
+			}
+		}
+	/*********************百度地图工具******************************************/	
+  function map_tool(){
+	  $("#tool .btn").click(function(){	
+	  	$("#allmap").css("width","60%");
+	   $("#tool_info").css("width","40%");
+	  }) 
+	  $("#pm25_btn").click(function(){	
+     
+	 $("#info_up").html('<iframe class="ifr" style="height:90%;width:100%; z-index:7;" src="./www/pm25alert.html" scrolling="no" frameborder="0"></iframe>');
+     $("#info_down").html('<iframe class="ifr" style="height:90%;width:100%;z-index:5;" src="./www/pm25cur.html" scrolling="no" frameborder="0"></iframe>');
+	  
+	  })
+	  $("#close_btn").click(function(){	
+	  	$("#allmap").css("width","100%");
+	   $("#tool_info").css("width","0%");
+	  }) 	  
+	  
+	  
+	  
+  }
+		
+	</script>
+
+<!-- javascript //-->
+<script src="js/jquery-3.2.0.js"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.treemenu.js" type="text/javascript"></script>
+<script src="js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.jeasyui.net/Public/js/easyui/jquery.easyui.min.js"></script>
+
+</body>
+</html>	
+	
+	
+	
+	
